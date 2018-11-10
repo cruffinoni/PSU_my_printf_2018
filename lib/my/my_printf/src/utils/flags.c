@@ -8,14 +8,9 @@
 #include <stddef.h>
 #include "flags.h"
 
-void add_flag(size_t *var, size_t flag)
+int compute_gflag(int value, size_t flag)
 {
-    *var = *var | flag;
-}
-
-int compute_flag(int value, size_t flag)
-{
-    if (flag & FLAGS_ERROR)
+    if (flag & GFLAG_INVALID_VALUE)
         return (-1);
     return (value);
 }

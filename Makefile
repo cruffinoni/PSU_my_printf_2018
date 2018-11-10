@@ -5,17 +5,19 @@
 ## this file is used for compliation of src and lib
 ##
 
-SRC	=	./src/my_printf.c 			\
-		./src/utils/utils.c 		\
-		./src/utils/print.c 		\
-		./src/utils/flags.c 		\
-		./src/type/integer.c 		\
-		./src/type/hexadecimal.c 	\
-		./src/type/octal.c 			\
-		./src/type/char.c 			\
-		./src/type/string.c 		\
-		./src/type/binary.c 		\
-		./src/type/pointer.c 		\
+SRC	=	./src/my_printf.c 				\
+		./src/handle_arg.c 				\
+		./src/handle_special_arg.c 		\
+		./src/utils/utils.c 			\
+		./src/utils/print.c 			\
+		./src/utils/flags.c 			\
+		./src/type/integer.c 			\
+		./src/type/hexadecimal.c 		\
+		./src/type/octal.c 				\
+		./src/type/char.c 				\
+		./src/type/string.c 			\
+		./src/type/binary.c 			\
+		./src/type/pointer.c 			\
 
 MAIN_FILE = ./src/main.c
 

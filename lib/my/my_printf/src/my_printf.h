@@ -15,7 +15,6 @@ typedef struct s_specifier
 {
     size_t flags;
     //char to_fill;
-    //size_t general_flag;
     int precision;
 } t_specifier;
 

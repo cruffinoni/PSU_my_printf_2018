@@ -44,12 +44,13 @@ SRC		= 	get_color.c \
 			my_swap.c \
 			my_strtol.c \
 			$(PRINTF_PATH)/my_printf.c 			\
+			$(PRINTF_PATH)/handle_arg.c 		\
 			$(PRINTF_PATH)/utils/utils.c 		\
 			$(PRINTF_PATH)/utils/print.c 		\
 			$(PRINTF_PATH)/utils/flags.c 		\
 			$(PRINTF_PATH)/type/integer.c 		\
 			$(PRINTF_PATH)/type/hexadecimal.c 	\
-			$(PRINTF_PATH)/type/octal.c 			\
+			$(PRINTF_PATH)/type/octal.c 		\
 			$(PRINTF_PATH)/type/char.c 			\
 			$(PRINTF_PATH)/type/string.c 		\
 			$(PRINTF_PATH)/type/binary.c 		\

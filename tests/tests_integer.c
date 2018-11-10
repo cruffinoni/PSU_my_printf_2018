@@ -41,10 +41,26 @@ Test(unsigned_int, simple_value, .init = redirect_all_std)
     cr_assert_stdout_eq_str("6");
 }
 
-Test(unsigned_int, little_val, .init = redirect_all_std)
+Test(unsigned_int, big_val, .init = redirect_all_std)
 {
     unsigned int un_int = 65456;
 
     cr_assert(my_printf("%u", un_int) == 5);
+    cr_assert_stdout_eq_str("65456");
+}
+
+Test(unsigned_int, acc_zero_big, .init = redirect_all_std)
+{
+    unsigned int un_int = 65456;
+
+    cr_assert(my_printf("%00006u", un_int) == 6);
+    cr_assert_stdout_eq_str("065456");
+}
+
+Test(unsigned_int, acc_lesser, .init = redirect_all_std)
+{
+    unsigned int un_int = 65456;
+
+    cr_assert(my_printf("%00004u", un_int) == 5);
     cr_assert_stdout_eq_str("65456");
 }

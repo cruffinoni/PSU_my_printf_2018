@@ -7,6 +7,7 @@
 
 #include "my.h"
 #include "utils.h"
+#include "flags.h"
 
 int get_specifier_index(char specifier)
 {
@@ -20,9 +21,8 @@ int get_specifier_index(char specifier)
         case 'o': return (5);
         case 's': return (6);
         case 'S': return (7);
-        //case '%': return (8);
-        case 'b': return (9);
-        case 'p': return (10);
+        case 'b': return (8);
+        case 'p': return (9);
         default: return (INVALID_SPECIFIER);
     }
 }
