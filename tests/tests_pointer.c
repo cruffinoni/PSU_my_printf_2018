@@ -19,13 +19,13 @@ static void redirect_all_std(void)
 
 Test(pointer, simple_value, .init = redirect_all_std)
 {
-    int ***val = 500;
+    int val = 500;
     char *str = malloc(sizeof(char) * 100);
 
     if (!str)
         return;
     sprintf(str, "%p", &val);
-    cr_assert(my_printf("%p", &val) == 1);
+    my_printf("%p", &val);
     cr_assert_stdout_eq_str(str);
     free(str);
 }

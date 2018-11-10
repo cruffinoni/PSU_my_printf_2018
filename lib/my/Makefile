@@ -42,26 +42,40 @@ SRC		= 	get_color.c \
 			my_strstr.c \
 			my_strupcase.c \
 			my_swap.c \
-			my_strtol.c
+			my_strtol.c \
+			$(PRINTF_PATH)/my_printf.c 			\
+			$(PRINTF_PATH)/utils/utils.c 		\
+			$(PRINTF_PATH)/utils/print.c 		\
+			$(PRINTF_PATH)/utils/flags.c 		\
+			$(PRINTF_PATH)/type/integer.c 		\
+			$(PRINTF_PATH)/type/hexadecimal.c 	\
+			$(PRINTF_PATH)/type/octal.c 			\
+			$(PRINTF_PATH)/type/char.c 			\
+			$(PRINTF_PATH)/type/string.c 		\
+			$(PRINTF_PATH)/type/binary.c 		\
+			$(PRINTF_PATH)/type/pointer.c 		\
 
 OBJ 	= 	$(SRC:.c=.o)
 NAME_LIB 	= 	libmy.a
 NAME_INCLUDE 	=	my.h
+PRINTF_PATH 	= ./my_printf/src
 
 all: $(NAME_LIB)
 
 $(NAME_LIB): $(OBJ) my
 	ar rc $(NAME_LIB) $(OBJ)
-	cp libmy.a ../
+	cp $(NAME_LIB) ../..
+	mv $(NAME_LIB) ../
 
 my:
 	cp $(NAME_INCLUDE) ../../include/
 
 clean:
-		rm -fr *.o
+		rm -f $(OBJ)
 
 fclean: clean
-		rm -fr *.a
+		rm -f ../$(NAME_LIB)
+		rm -f ../../$(NAME_LIB)
 
 re: fclean all
 

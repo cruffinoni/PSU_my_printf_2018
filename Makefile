@@ -26,24 +26,27 @@ SRC_TEST = 	./tests/tests_integer.c 		\
 			./tests/tests_binary.c 			\
 			./tests/tests_string.c 			\
 			./tests/tests_errors.c 			\
+			./tests/tests_pointer.c 		\
 
 NAME	=	my_printf
 NAME_TEST	=	test_my_printf
-LIB_PATH = ./lib/my/
+LIB_MAKEFILE_PATH = ./lib/my/
+LIB_PATH = ./lib
 INCLUDE_PATH = ./include/
-LIB_NAME = libmy.a
+PRINTF_PATH = ./lib/my/my_printf
 
 CFLAGS	=	-W -Wall -Wextra -I $(INCLUDE_PATH) -L $(LIB_PATH) -lmy
 
 OBJ	=	$(SRC:.c=.o)
 OBJ_MAIN = $(MAIN_FILE:.c=.o)
 
-$(NAME): $(OBJ)
-	$(MAKE) -C $(LIB_PATH)
-	ar rc $(LIB_NAME) $(OBJ)
+$(NAME):
+	cp ./src $(PRINTF_PATH) -rf
+	$(MAKE) -C $(PRINTF_PATH)
+	$(MAKE) -C $(LIB_MAKEFILE_PATH)
 
 binary:	$(OBJ) $(OBJ_MAIN)
-		$(MAKE) -C $(LIB_PATH)
+		$(MAKE) -C $(LIB_MAKEFILE_PATH)
 		cc -o $(NAME) $(OBJ) $(OBJ_MAIN) $(CFLAGS) -g
 
 all: $(NAME)
@@ -52,17 +55,17 @@ debug:
 	gcc $(SRC) -o $(NAME) $(CFLAGS) -g
 
 tests_run:
-	$(MAKE) -C $(LIB_PATH)
+	$(MAKE) -C $(LIB_MAKEFILE_PATH)
 	gcc -o $(NAME_TEST) $(SRC_TEST) $(SRC) $(CFLAGS) -lcriterion --coverage -g
 
 clean:
-		rm -f $(OBJ) $(OBJ_MAIN) $(LIB_NAME)
-		$(MAKE) -C $(LIB_PATH) clean
+		rm -f $(OBJ) $(OBJ_MAIN)
+		$(MAKE) -C $(LIB_MAKEFILE_PATH) clean
 
 fclean:
-		rm -f $(OBJ) $(OBJ_MAIN) $(LIB_NAME)
+		rm -f $(OBJ) $(OBJ_MAIN)
 		rm -f $(NAME) $(NAME_TEST)
-		$(MAKE) -C $(LIB_PATH) fclean
+		$(MAKE) -C $(LIB_MAKEFILE_PATH) fclean
 
 re:		fclean all
 
