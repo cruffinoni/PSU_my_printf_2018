@@ -40,3 +40,11 @@ Test(octal, acc_zero, .init = redirect_all_std)
     cr_assert(my_printf("%07o", un_int) == 7);
     cr_assert_stdout_eq_str("0177777");
 }
+
+Test(octal, acc_space, .init = redirect_all_std)
+{
+    unsigned int un_int = 0xFFFF;
+
+    cr_assert(my_printf("%7o", un_int) == 7);
+    cr_assert_stdout_eq_str(" 177777");
+}

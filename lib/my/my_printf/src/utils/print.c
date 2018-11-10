@@ -9,7 +9,7 @@
 #include "../my_printf.h"
 #include "flags.h"
 
-void put_char_base(long number, int upper_case)
+void put_char_base(long long number, int upper_case)
 {
     if (upper_case) {
         if (number >= 10)

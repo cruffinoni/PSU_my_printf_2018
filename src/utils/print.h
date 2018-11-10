@@ -11,6 +11,6 @@
 int print_nbr_base(long nbr, int *count, int upper_case, int base);
 void put_char_base(long number, int upper_case);
 int print_string(char *string, int *count, int escape_char);
-void print_char_ite(long count, char c);
+void print_char_ite(long long count, size_t char_flags);
 
 #endif

@@ -64,3 +64,28 @@ Test(unsigned_int, acc_lesser, .init = redirect_all_std)
     cr_assert(my_printf("%00004u", un_int) == 5);
     cr_assert_stdout_eq_str("65456");
 }
+
+Test(unsigned_int, mix_simple, .init = redirect_all_std)
+{
+    cr_assert(my_printf("%1lu", 20) == 2);
+    cr_assert_stdout_eq_str("20");
+}
+
+Test(unsigned_int, mix_medium, .init = redirect_all_std)
+{
+    cr_assert(my_printf("%05lu", 20) == 5);
+    cr_assert_stdout_eq_str("00020");
+}
+
+Test(unsigned_int, mix_intermediate, .init = redirect_all_std)
+{
+    cr_assert(my_printf("%003llu", 20) == 3);
+    cr_assert_stdout_eq_str("020");
+}
+
+Test(unsigned_int, mix_hard, .init = redirect_all_std)
+{
+    unsigned long long_val = 288945984651326132;
+    cr_assert(my_printf("%003lu", long_val) == 18);
+    cr_assert_stdout_eq_str("288945984651326132");
+}

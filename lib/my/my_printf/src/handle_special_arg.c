@@ -15,6 +15,8 @@ size_t handle_special_arg_l(char const *src, int *idx)
     *idx = *idx + 1;
     if (src[*idx + 1] == 'l' || src[*idx + 1] == 'L') {
         *idx = *idx + 1;
+        if (get_specifier_index(src[*idx + 1]) == INVALID_SPECIFIER)
+            return (FLAG_INVALID_TYPE);
         return (FLAG_TYPE_LL);
     }
     else if (get_specifier_index(src[*idx + 1]) != INVALID_SPECIFIER)
@@ -27,6 +29,8 @@ size_t handle_special_arg_h(char const *src, int *idx)
     *idx = *idx + 1;
     if (src[*idx + 1] == 'h' || src[*idx + 1] == 'H') {
         *idx = *idx + 1;
+        if (get_specifier_index(src[*idx + 1]) == INVALID_SPECIFIER)
+            return (FLAG_INVALID_TYPE);
         return (FLAG_TYPE_HH);
     }
     else if (get_specifier_index(src[*idx + 1]) != INVALID_SPECIFIER)

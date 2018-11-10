@@ -19,17 +19,13 @@ static void redirect_all_std(void)
 
 Test(character, simple_value, .init = redirect_all_std)
 {
-    int un_int = 'a';
-
-    cr_assert(my_printf("%c", un_int) == 1);
+    cr_assert(my_printf("%c", 'a') == 1);
     cr_assert_stdout_eq_str("a");
 }
 
 Test(character, up_simple_value, .init = redirect_all_std)
 {
-    int un_int = 'A';
-
-    cr_assert(my_printf("%c", un_int) == 1);
+    cr_assert(my_printf("%c", 'A') == 1);
     cr_assert_stdout_eq_str("A");
 }
 
@@ -43,4 +39,10 @@ Test(character, special_char_acc, .init = redirect_all_std)
 {
     cr_assert(my_printf("%10%") == 1);
     cr_assert_stdout_eq_str("%");
+}
+
+Test(character, simple_acc, .init = redirect_all_std)
+{
+    cr_assert(my_printf("%5c", 'a') == 5);
+    cr_assert_stdout_eq_str("    a");
 }

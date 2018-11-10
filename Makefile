@@ -11,6 +11,7 @@ SRC	=	./src/my_printf.c 				\
 		./src/utils/utils.c 			\
 		./src/utils/print.c 			\
 		./src/utils/flags.c 			\
+		./src/utils/recast.c 			\
 		./src/type/integer.c 			\
 		./src/type/hexadecimal.c 		\
 		./src/type/octal.c 				\

@@ -33,10 +33,18 @@ Test(binary, big_val, .init = redirect_all_std)
     cr_assert_stdout_eq_str("1111111111111111");
 }
 
-Test(binary, accuracy, .init = redirect_all_std)
+Test(binary, acc_space, .init = redirect_all_std)
 {
     unsigned int un_int = 0xFFFF;
 
     cr_assert(my_printf("%20b", un_int) == 20);
     cr_assert_stdout_eq_str("    1111111111111111");
+}
+
+Test(binary, acc_zero, .init = redirect_all_std)
+{
+    unsigned int un_int = 0xFFFF;
+
+    cr_assert(my_printf("%0020b", un_int) == 20);
+    cr_assert_stdout_eq_str("00001111111111111111");
 }

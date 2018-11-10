@@ -27,3 +27,21 @@ Test(errors, solo_per, .init = redirect_all_std)
     cr_assert(my_printf("a%") == -1);
     cr_assert_stdout_eq_str("a");
 }
+
+Test(errors, valid_type, .init = redirect_all_std)
+{
+    cr_assert(my_printf("%l54") == 3);
+    cr_assert_stdout_eq_str("%54");
+}
+
+Test(errors, double_valid_type, .init = redirect_all_std)
+{
+    cr_assert(my_printf("%ll54") == 3);
+    cr_assert_stdout_eq_str("%54");
+}
+
+Test(errors, invalid_type, .init = redirect_all_std)
+{
+    cr_assert(my_printf("%k85") == 4);
+    cr_assert_stdout_eq_str("%k85");
+}
