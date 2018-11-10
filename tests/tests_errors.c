@@ -18,8 +18,8 @@ static void redirect_all_std(void)
 
 Test(errors, forbidden_specifier, .init = redirect_all_std)
 {
-    cr_assert(my_printf("%m") == 2);
-    cr_assert_stdout_eq_str("%m");
+    cr_assert(my_printf("%k") == 2);
+    cr_assert_stdout_eq_str("%k");
 }
 
 Test(errors, solo_per, .init = redirect_all_std)

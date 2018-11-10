@@ -28,3 +28,9 @@ Test(string, sentance, .init = redirect_all_std)
     cr_assert(my_printf("%s", "Hello World") == 11);
     cr_assert_stdout_eq_str("Hello World");
 }
+
+Test(string, acc_space_only, .init = redirect_all_std)
+{
+    cr_assert(my_printf("%15s", "Hello World") == 15);
+    cr_assert_stdout_eq_str("    Hello World");
+}

@@ -8,7 +8,8 @@
 #ifndef HEADER_SRC_HEXADECIMAL
 #define HEADER_SRC_HEXADECIMAL
 
-int type_hex(va_list args);
-int type_hex_up(va_list args);
+#include "../my_printf.h"
+int type_hex(va_list args, t_specifier specifier_infos);
+int type_hex_up(va_list args, t_specifier specifier_infos);
 
 #endif

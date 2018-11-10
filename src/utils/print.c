@@ -6,6 +6,8 @@
 */
 
 #include "my.h"
+#include "../my_printf.h"
+#include "flags.h"
 
 void put_char_base(long number, int upper_case)
 {
@@ -23,9 +25,9 @@ void put_char_base(long number, int upper_case)
     }
 }
 
-int print_nbr_base(long nbr, int *count, int upper_case, int base)
+int print_nbr_base(long long nbr, int *count, int upper_case, int base)
 {
-    long displayed_number = 0;
+    long long displayed_number = 0;
 
     if (nbr < 0) {
         my_putchar('-');
@@ -73,4 +75,13 @@ int print_string(char *string, int *count, int escape_char)
     else
         *count = *count + my_putchar_escaped(*string);
     return (print_string(++string, count, escape_char));
+}
+
+void print_char_ite(long count, size_t char_flags)
+{
+    char c = 0;
+
+    c = char_flags & FLAG_ACC_IS_ZERO ? '0' : ' ';
+    while (count-- > 0)
+        my_putchar(c);
 }

@@ -8,6 +8,7 @@
 #ifndef HEADER_SRC_CHAR
 #define HEADER_SRC_CHAR
 
-int type_char(va_list args);
+#include "../my_printf.h"
+int type_char(va_list args, t_specifier specifier_infos);
 
 #endif

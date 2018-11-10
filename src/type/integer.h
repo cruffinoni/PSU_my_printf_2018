@@ -8,8 +8,8 @@
 #ifndef HEADER_SRC_INTEGER
 #define HEADER_SRC_INTEGER
 
-int type_int(va_list args);
-int type_unsigned_int(va_list args);
-int print_number(long nb, int *count);
+#include "../my_printf.h"
+int type_int(va_list args, t_specifier specifier_infos);
+int type_unsigned_int(va_list args, t_specifier specifier_infos);
 
 #endif

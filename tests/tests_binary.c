@@ -27,8 +27,16 @@ Test(binary, simple_value, .init = redirect_all_std)
 
 Test(binary, big_val, .init = redirect_all_std)
 {
-    unsigned int un_int = 65535;
+    unsigned int un_int = 0xFFFF;
 
     cr_assert(my_printf("%b", un_int) == 16);
     cr_assert_stdout_eq_str("1111111111111111");
+}
+
+Test(binary, accuracy, .init = redirect_all_std)
+{
+    unsigned int un_int = 0xFFFF;
+
+    cr_assert(my_printf("%20b", un_int) == 20);
+    cr_assert_stdout_eq_str("    1111111111111111");
 }

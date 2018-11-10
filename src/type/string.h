@@ -8,7 +8,7 @@
 #ifndef HEADER_SRC_STRING
 #define HEADER_SRC_STRING
 
-int type_string(va_list args);
-int type_string_escape(va_list args);
+int type_string(va_list args, t_specifier specifier_infos);
+int type_string_escape(va_list args, t_specifier specifier_infos);
 
 #endif

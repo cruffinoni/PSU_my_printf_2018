@@ -38,3 +38,9 @@ Test(character, special_char, .init = redirect_all_std)
     cr_assert(my_printf("%%") == 1);
     cr_assert_stdout_eq_str("%");
 }
+
+Test(character, special_char_acc, .init = redirect_all_std)
+{
+    cr_assert(my_printf("%10%") == 1);
+    cr_assert_stdout_eq_str("%");
+}

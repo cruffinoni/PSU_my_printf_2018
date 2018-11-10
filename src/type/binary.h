@@ -8,6 +8,7 @@
 #ifndef HEADER_SRC_BINARY
 #define HEADER_SRC_BINARY
 
-int type_binary(va_list args);
+#include "../my_printf.h"
+int type_binary(va_list args, t_specifier specifier_infos);
 
 #endif

@@ -8,6 +8,6 @@
 #ifndef HEADER_SRC_OCTAL
 #define HEADER_SRC_OCTAL
 
-int type_octal(va_list args);
+int type_octal(va_list args, t_specifier specifier_infos);
 
 #endif

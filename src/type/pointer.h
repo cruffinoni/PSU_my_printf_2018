@@ -8,6 +8,6 @@
 #ifndef HEADER_SRC_POINTER
 #define HEADER_SRC_POINTER
 
-int type_pointer(va_list args);
+int type_pointer(va_list args, t_specifier specifier_infos);
 
 #endif

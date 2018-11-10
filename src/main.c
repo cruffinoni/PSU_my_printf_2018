@@ -10,13 +10,12 @@
 
 int main(int argc, char **argv)
 {
-    int returned_val = my_printf("a%");
+    int returned_val = my_printf("'%05s'\n", "hi");
 
     printf("Returned val: %i\n", returned_val);
     my_putstr("--------------\n");
-    returned_val = printf("a%");
+    returned_val = printf("'%05x'\n", 0x2);
     printf("Returned val: %i\n", returned_val);
-
 
     /*int returned_val = printf("Some tests: '%5i', '%hli', '%li'\n", 1, 0xFFFFF, 1);
     printf("Value-> %i\n", returned_val);*/
