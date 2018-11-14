@@ -5,7 +5,7 @@
 ** Utils functions for the main project, my_printf
 */
 
-#include "my.h"
+#include "../../../my.h"
 #include "utils.h"
 #include "flags.h"
 

@@ -20,7 +20,7 @@ SRC	=	./src/my_printf.c 				\
 		./src/type/binary.c 			\
 		./src/type/pointer.c 			\
 
-MAIN_FILE = ./src/main.c
+MAIN_FILE = ./src/main_test.c
 
 SRC_TEST = 	./tests/tests_integer.c 		\
 			./tests/tests_hexadecimal.c 	\
@@ -44,8 +44,6 @@ OBJ	=	$(SRC:.c=.o)
 OBJ_MAIN = $(MAIN_FILE:.c=.o)
 
 $(NAME):
-	cp ./src $(PRINTF_PATH) -rf
-	$(MAKE) -C $(PRINTF_PATH)
 	$(MAKE) -C $(LIB_MAKEFILE_PATH)
 
 binary:	$(OBJ) $(OBJ_MAIN)

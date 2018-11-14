@@ -5,7 +5,7 @@
 ** LL & HH type have 2 chars instead of 1 which makes them special.
 */
 
-#include "my.h"
+#include "../../my.h"
 #include "my_printf.h"
 #include "utils/flags.h"
 #include "utils/utils.h"

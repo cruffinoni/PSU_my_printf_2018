@@ -8,7 +8,7 @@
 #include <stdarg.h>
 #include <stdlib.h>
 #include "my_printf.h"
-#include "my.h"
+#include "../../my.h"
 #include "utils/utils.h"
 #include "utils/print.h"
 #include "utils/flags.h"
