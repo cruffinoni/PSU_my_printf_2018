@@ -14,8 +14,13 @@ int my_printf(char const *src, ...);
 typedef struct s_specifier
 {
     size_t flags;
-    //char to_fill;
+    size_t flags_type; // à supprimer
+    size_t flags_extra;
+    int len_specifier;
+    int extra_precision;
     int precision;
-} t_specifier;
+    size_t base;
+    char basic_specifier;
+} t_local_spe;
 
 #endif

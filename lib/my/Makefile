@@ -43,23 +43,30 @@ SRC		= 	get_color.c \
 			my_strupcase.c \
 			my_swap.c \
 			my_strtol.c \
-			$(PRINTF_PATH)/my_printf.c 			\
-			$(PRINTF_PATH)/handle_arg.c 		\
-			$(PRINTF_PATH)/utils/utils.c 		\
-			$(PRINTF_PATH)/utils/print.c 		\
-			$(PRINTF_PATH)/utils/flags.c 		\
-			$(PRINTF_PATH)/type/integer.c 		\
-			$(PRINTF_PATH)/type/hexadecimal.c 	\
-			$(PRINTF_PATH)/type/octal.c 		\
-			$(PRINTF_PATH)/type/char.c 			\
-			$(PRINTF_PATH)/type/string.c 		\
-			$(PRINTF_PATH)/type/binary.c 		\
-			$(PRINTF_PATH)/type/pointer.c 		\
+			./my_printf/src/my_printf.c 						\
+			./my_printf/src/type/signed_int/small_len.c 		\
+			./my_printf/src/type/signed_int/big_len.c 			\
+			./my_printf/src/type/unsigned_int/small_len.c 		\
+			./my_printf/src/type/unsigned_int/big_len.c 		\
+			./my_printf/src/type/char.c 						\
+			./my_printf/src/type/string.c 						\
+			./my_printf/src/type/pointer.c 						\
+			./my_printf/src/handle_args/parse_redirect.c 		\
+			./my_printf/src/handle_args/extra_flags.c 			\
+			./my_printf/src/handle_args/precision.c 			\
+			./my_printf/src/utils/utils.c 						\
+			./my_printf/src/utils/print/print.c 				\
+			./my_printf/src/utils/print/print_int.c 			\
+			./my_printf/src/utils/print/print_uint.c 			\
+			./my_printf/src/utils/print/print_string.c 			\
+			./my_printf/src/utils/flags.c 						\
+			./my_printf/src/utils/getid.c 						\
 
 OBJ 	= 	$(SRC:.c=.o)
 NAME_LIB 	= 	libmy.a
 NAME_INCLUDE 	=	my.h
-PRINTF_PATH 	= ./my_printf/src
+
+CFLAGS			=	-I ./
 
 all: $(NAME_LIB)
 

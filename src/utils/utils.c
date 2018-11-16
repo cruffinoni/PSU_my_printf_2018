@@ -5,31 +5,13 @@
 ** Utils functions for the main project, my_printf
 */
 
+#include <stdint.h>
 #include "my.h"
-#include "utils.h"
 #include "flags.h"
 
-int get_specifier_index(char specifier)
+int uint_len(uintptr_t number)
 {
-    switch (specifier) {
-        case 'i':
-        case 'd': return (0);
-        case 'u': return (1);
-        case 'x': return (2);
-        case 'X': return (3);
-        case 'c': return (4);
-        case 'o': return (5);
-        case 's': return (6);
-        case 'S': return (7);
-        case 'b': return (8);
-        case 'p': return (9);
-        default: return (INVALID_SPECIFIER);
-    }
-}
-
-int int_len(long long number)
-{
-    int count = 0;
+    size_t count = 0;
 
     while (number > 0) {
         count++;
@@ -38,19 +20,45 @@ int int_len(long long number)
     return (count);
 }
 
-int count_nbr_base(long long nbr, int *count, int base)
+int uint_count_base(uintptr_t nbr, int *count, size_t base)
 {
-    long long displayed_number = 0;
+    uintptr_t displayed_number = 0;
+
+    if (nbr >= base) {
+        displayed_number = nbr % base;
+        nbr = (nbr - displayed_number) / base;
+        *count = *count + 1;
+        uint_count_base(nbr, count, base);
+    }
+    else
+        *count = *count + 1;
+    return (0);
+}
+
+int int_len(intptr_t number, size_t base)
+{
+    size_t count = 0;
+
+    while (number > 0) {
+        count++;
+        number /= base;
+    }
+    return (count);
+}
+
+int int_count(intptr_t nbr, int *count)
+{
+    intptr_t displayed_number = 0;
 
     if (nbr < 0) {
         *count = *count + 1;
         nbr *= -1;
     }
-    if (nbr >= base) {
-        displayed_number = nbr % base;
-        nbr = (nbr - displayed_number) / base;
+    if (nbr >= 10) {
+        displayed_number = nbr % 10;
+        nbr = (nbr - displayed_number) / 10;
         *count = *count + 1;
-        count_nbr_base(nbr, count, base);
+        int_count(nbr, count);
     }
     else
         *count = *count + 1;

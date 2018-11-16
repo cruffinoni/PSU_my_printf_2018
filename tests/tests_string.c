@@ -9,7 +9,6 @@
 #include <criterion/redirect.h>
 #include <stdlib.h>
 #include "../src/my_printf.h"
-#include "../src/type/string.h"
 
 static void redirect_all_std(void)
 {
@@ -29,10 +28,34 @@ Test(string, sentance, .init = redirect_all_std)
     cr_assert_stdout_eq_str("Hello World");
 }
 
-Test(string, acc_space_only, .init = redirect_all_std)
+Test(string, acc, .init = redirect_all_std)
 {
-    cr_assert(my_printf("%15s", "Hello World") == 15);
-    cr_assert_stdout_eq_str("    Hello World");
+    cr_assert(my_printf("%12s", "Hello World") == 12);
+    cr_assert_stdout_eq_str(" Hello World");
+}
+
+Test(string, acc_zero, .init = redirect_all_std)
+{
+    cr_assert(my_printf("%012s", "Hello World") == 12);
+    cr_assert_stdout_eq_str(" Hello World");
+}
+
+Test(string, mix_acc_zero, .init = redirect_all_std)
+{
+    cr_assert(my_printf("%012.13s", "Hello World") == 12);
+    cr_assert_stdout_eq_str(" Hello World");
+}
+
+Test(string, mix_acc_zero_neg, .init = redirect_all_std)
+{
+    cr_assert(my_printf("%-012.13s", "Hello World") == 12);
+    cr_assert_stdout_eq_str("Hello World  ");
+}
+
+Test(string, all_extraf, .init = redirect_all_std)
+{
+    cr_assert(my_printf("%+#-012.13s", "Hello World") == 12);
+    cr_assert_stdout_eq_str("Hello World  ");
 }
 
 Test(string, escape, .init = redirect_all_std)

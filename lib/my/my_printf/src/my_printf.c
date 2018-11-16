@@ -8,9 +8,9 @@
 #include <stdarg.h>
 #include <stdlib.h>
 #include "my_printf.h"
-#include "../../my.h"
+#include "my.h"
 #include "./utils/flags.h"
-#include "handle_arg.h"
+#include "./handle_args/parse_redirect.h"
 
 int my_printf(char const *src, ...)
 {

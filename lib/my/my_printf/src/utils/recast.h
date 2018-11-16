@@ -11,10 +11,11 @@
 #include <sys/types.h>
 #include <stdint.h>
 #include <stdarg.h>
+#include "../my_printf.h"
 
-void int_recast_cnb(ptrdiff_t nbr, int *count, int base, size_t flags);
-void uint_recast_cnb(uintptr_t nbr, int *count, int base, size_t flags);
-void int_recast_pnb(ptrdiff_t nbr, int *count, int base, size_t flags);
-void uint_recast_pnb(uintptr_t nbr, int *count, int base, size_t flags);
+void int_recast_cnb(ptrdiff_t nbr, int *count, int base, t_local_spe spec);
+void uint_recast_cnb(uintptr_t nbr, int *count, int base, t_local_spe spec);
+void int_recast_pnb(ptrdiff_t nbr, int *count, int base, t_local_spe spec);
+void uint_recast_pnb(uintptr_t nbr, int *count, int base, t_local_spe spec);
 
 #endif

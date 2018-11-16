@@ -9,7 +9,6 @@
 #include <criterion/redirect.h>
 #include <stdlib.h>
 #include "../src/my_printf.h"
-#include "../src/type/char.h"
 
 static void redirect_all_std(void)
 {

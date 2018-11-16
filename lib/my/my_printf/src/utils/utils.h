@@ -8,10 +8,12 @@
 #ifndef HEADER_SRC_UTILS
 #define HEADER_SRC_UTILS
 
-#define INVALID_SPECIFIER (-1)
+#include <stdlib.h>
+#include <stdint.h>
 
-int get_specifier_index(char specifier);
-int int_len(long long number);
-int count_nbr_base(long long nbr, int *count, int base);
+int uint_len(uintptr_t number);
+int uint_count_base(uintptr_t nbr, int *count, size_t base);
+int int_len(intptr_t number, size_t base);
+int int_count(intptr_t nbr, int *count);
 
 #endif
