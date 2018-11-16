@@ -10,6 +10,8 @@
 
 #include "../../my_printf.h"
 
+int type_schar(va_list args, t_local_spe specifier_infos);
+int type_short(va_list args, t_local_spe specifier_infos);
 int type_int(va_list args, t_local_spe specifier_infos);
 int type_long(va_list args, t_local_spe specifier_infos);
 int type_llong(va_list args, t_local_spe specifier_infos);

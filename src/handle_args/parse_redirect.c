@@ -28,9 +28,9 @@ static int (*func_ptr_others[])(va_list, t_local_spe) = {type_pointer,
 
 static int (*func_ptr_int[][8])(va_list, t_local_spe) =
 {
-    {type_int, type_int, type_int, type_long, type_llong, type_intmax_t,
+    {type_int, type_schar, type_short, type_long, type_llong, type_intmax_t,
         type_ssize_t, type_ptrdiff_t},
-    {type_unint, type_unint, type_unint, type_unlong, type_unllong,
+    {type_unint, type_uschar, type_ushort, type_unlong, type_unllong,
         type_uintmax_t, type_sizet, type_unptrdiff_t}
 };
 

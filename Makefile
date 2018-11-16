@@ -50,8 +50,6 @@ OBJ_MAIN_TEST = $(MAIN_TEST_FILE:.c=.o)
 
 $(NAME):
 	cp ./src ./lib/my/my_printf/ -rf
-	rm ./lib/my/my_printf/src/main.c -f
-	rm ./lib/my/my_printf/src/main_test.c -f
 	$(MAKE) -C $(LIB_MAKEFILE_PATH)
 
 binary:	$(OBJ) $(OBJ_MAIN)
