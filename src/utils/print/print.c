@@ -37,8 +37,6 @@ int print_precision(t_local_spe speinfo, int nb_len)
 
     if ((speinfo.flags_extra & EXTRAF_HASH) == EXTRAF_HASH)
         nb_len += get_hash_size(speinfo.basic_specifier);
-    /*if (speinfo.basic_specifier == 'x' || speinfo.basic_specifier == 'X')
-        return (0);*/
     if ((speinfo.flags_extra & EXTRAF_MINUS) != EXTRAF_MINUS &&
         nb_len < speinfo.precision)
         count += print_higher_acc(speinfo, nb_len);

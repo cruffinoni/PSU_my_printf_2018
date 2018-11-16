@@ -40,9 +40,11 @@ int print_string(char *string, int *count, int escape_char)
 
 int print_char_ite(int count, char c)
 {
-    for (int i = 0; i < count; i++)
+    int counted = 0;
+
+    for (counted = 0; counted < count; counted++)
         my_putchar(c);
-    return (count);
+    return (counted);
 }
 
 void put_char_base(int number, int upper_case)

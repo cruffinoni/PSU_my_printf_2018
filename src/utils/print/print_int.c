@@ -52,11 +52,15 @@ void int_print_precision(t_local_spe spe, int *count, int lnb)
         *count += my_putchar(' ');
     if ((spe.flags & FLAG_ACC_IS_ZERO) != FLAG_ACC_IS_ZERO &&
         (spe.flags_extra & EXTRAF_MINUS) != EXTRAF_MINUS &&
-        spe.extra_precision == 0)
-        *count += print_char_ite(spe.precision - (*count + lnb), ' ');
+        spe.extra_precision == 0) {
+        if ((spe.flags & FLAG_IS_NEGATIVE) == FLAG_IS_NEGATIVE
+            || (spe.flags_extra & EXTRAF_PLUS) == EXTRAF_PLUS)
+            lnb++;
+        *count += print_char_ite(spe.precision - lnb, ' ');
+    }
     *count += int_print_sign(spe);
     if (spe.extra_precision > 0)
-        *count += print_char_ite(spe.extra_precision - (*count + lnb), '0');
+        *count += print_char_ite(spe.extra_precision - lnb, '0');
     if (((spe.flags & FLAG_ACC_IS_ZERO) == FLAG_ACC_IS_ZERO) &&
         (spe.precision > 0 && spe.extra_precision == 0) &&
         (spe.flags_extra & EXTRAF_MINUS) != EXTRAF_MINUS)

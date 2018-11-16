@@ -74,7 +74,7 @@ int handle_args(char const *src, int *index, va_list args, size_t *gflag)
         specifier.precision = handle_precision(src, index);
     }
     if (src[*index + 1] == '.') {
-        *index = *index + 1;
+        *index += 1;
         specifier.extra_precision = handle_precision(src, index);
         specifier.flags &= ~FLAG_ACC_IS_ZERO;
     }
