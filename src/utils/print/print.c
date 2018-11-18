@@ -26,7 +26,8 @@ int print_higher_acc(t_local_spe speinfo, int nb_len)
         c = print_char_ite(speinfo.precision - speinfo.extra_precision, ' ');
     else if (speinfo.precision > speinfo.extra_precision)
         c = print_char_ite(speinfo.precision - speinfo.extra_precision, '0');
-    if (speinfo.extra_precision)
+    if (speinfo.extra_precision && (speinfo.flags_extra & EXTRAF_HASH) !=
+        EXTRAF_HASH)
         c += print_char_ite(speinfo.extra_precision, '0');
     return (c);
 }

@@ -23,8 +23,13 @@ int type_pointer(va_list args, t_local_spe specifier_infos)
     int count = 2;
     int nb_len = uint_len((intptr_t) var) - 1;
 
-    count += print_extraf(specifier_infos, 0, 0);
+    if ((specifier_infos.flags_extra & EXTRAF_PLUS) != EXTRAF_PLUS)
+        count += print_extraf(specifier_infos, 0, 0);
+    else
+        specifier_infos.precision--;
     count += print_precision(specifier_infos, nb_len);
+    if ((specifier_infos.flags_extra & EXTRAF_PLUS) == EXTRAF_PLUS)
+        count += print_extraf(specifier_infos, 0, 0);
     write(1, "0x", 2);
     uint_print_nbr((intptr_t) var, &count, 0, 16);
     if ((specifier_infos.flags_extra & EXTRAF_MINUS) == EXTRAF_MINUS)

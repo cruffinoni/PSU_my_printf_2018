@@ -25,17 +25,17 @@ static int my_putchar_escaped(char c)
     return (count_char);
 }
 
-int print_string(char *string, int *count, int escape_char)
+int print_string(char *string, int *count, int escape_char, t_local_spe spe)
 {
     if (*string == '\0')
         return (0);
-    if (!escape_char) {
-        my_putchar(*string);
-        *count = *count + 1;
-    }
+    if (*count >= spe.extra_precision && spe.extra_precision > 0)
+        return (0);
+    if (!escape_char)
+        *count += my_putchar(*string);
     else
         *count = *count + my_putchar_escaped(*string);
-    return (print_string(++string, count, escape_char));
+    return (print_string(++string, count, escape_char, spe));
 }
 
 int print_char_ite(int count, char c)

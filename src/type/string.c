@@ -22,7 +22,7 @@ int type_string(va_list args, t_local_spe specifier_infos)
         if (specifier_infos.precision > str_len)
             count += print_char_ite(specifier_infos.precision - str_len, ' ');
     }
-    print_string(var, &count, 0);
+    print_string(var, &count, 0, specifier_infos);
     if ((specifier_infos.flags_extra & EXTRAF_MINUS) == EXTRAF_MINUS) {
         if (specifier_infos.precision > count)
             count += print_char_ite(specifier_infos.precision - count, ' ');
@@ -36,6 +36,6 @@ int type_string_escape(va_list args, t_local_spe specifier_infos)
     int count = my_strlen(var);
 
     count = 0;
-    print_string(var, &count, 1);
+    print_string(var, &count, 1, specifier_infos);
     return (count + specifier_infos.precision);
 }
