@@ -20,13 +20,13 @@
 int type_pointer(va_list args, t_local_spe specifier_infos)
 {
     void *var = va_arg(args, void *);
-    int count = 2;
-    int nb_len = uint_len((intptr_t) var) - 1;
+    int count = 0;
+    int nb_len = 14;
 
-    if ((specifier_infos.flags_extra & EXTRAF_PLUS) != EXTRAF_PLUS)
+    if ((specifier_infos.flags_extra & EXTRAF_PLUS) != EXTRAF_PLUS) {
         count += print_extraf(specifier_infos, 0, 0);
-    else
-        specifier_infos.precision--;
+        nb_len++;
+    }
     count += print_precision(specifier_infos, nb_len);
     if ((specifier_infos.flags_extra & EXTRAF_PLUS) == EXTRAF_PLUS)
         count += print_extraf(specifier_infos, 0, 0);
