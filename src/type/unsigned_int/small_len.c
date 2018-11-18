@@ -32,10 +32,8 @@ int type_uschar(va_list args, t_local_spe specifier_infos)
     uint_print_nbr(var, &count, specifier_infos.basic_specifier == 'X', base);
     if ((specifier_infos.flags_extra & EXTRAF_MINUS) == EXTRAF_MINUS)
         if (nb_len < specifier_infos.precision && specifier_infos.precision >
-            count) {
-            specifier_infos.flags &= ~FLAG_ACC_IS_ZERO;
+            count)
             count += print_char_ite(specifier_infos.precision - count, ' ');
-        }
     return (count);
 }
 
@@ -52,10 +50,8 @@ int type_ushort(va_list args, t_local_spe specifier_infos)
     uint_print_nbr(var, &count, specifier_infos.basic_specifier == 'X', base);
     if ((specifier_infos.flags_extra & EXTRAF_MINUS) == EXTRAF_MINUS)
         if (nb_len < specifier_infos.precision && specifier_infos.precision >
-            count) {
-            specifier_infos.flags &= ~FLAG_ACC_IS_ZERO;
+            count)
             count += print_char_ite(specifier_infos.precision - count, ' ');
-        }
     return (count);
 }
 
@@ -72,10 +68,8 @@ int type_unint(va_list args, t_local_spe specifier_infos)
     uint_print_nbr(var, &count, specifier_infos.basic_specifier == 'X', base);
     if ((specifier_infos.flags_extra & EXTRAF_MINUS) == EXTRAF_MINUS)
         if (nb_len < specifier_infos.precision && specifier_infos.precision >
-            count) {
-            specifier_infos.flags &= ~FLAG_ACC_IS_ZERO;
+            count)
             count += print_char_ite(specifier_infos.precision - count, ' ');
-        }
     return (count);
 }
 
@@ -92,10 +86,8 @@ int type_unlong(va_list args, t_local_spe specifier_infos)
     uint_print_nbr(var, &count, specifier_infos.basic_specifier == 'X', base);
     if ((specifier_infos.flags_extra & EXTRAF_MINUS) == EXTRAF_MINUS)
         if (nb_len < specifier_infos.precision && specifier_infos.precision >
-            count) {
-            specifier_infos.flags &= ~FLAG_ACC_IS_ZERO;
+            count)
             count += print_char_ite(specifier_infos.precision - count, ' ');
-        }
     return (count);
 }
 
@@ -112,9 +104,7 @@ int type_unllong(va_list args, t_local_spe specifier_infos)
     uint_print_nbr(var, &count, specifier_infos.basic_specifier == 'X', base);
     if ((specifier_infos.flags_extra & EXTRAF_MINUS) == EXTRAF_MINUS)
         if (nb_len < specifier_infos.precision && specifier_infos.precision >
-            count) {
-            specifier_infos.flags &= ~FLAG_ACC_IS_ZERO;
+            count)
             count += print_char_ite(specifier_infos.precision - count, ' ');
-        }
     return (count);
 }

@@ -16,14 +16,12 @@ int handle_precision(char const *src, int *idx)
     char *ptr_cpy = cpy;
 
     if (cpy == NULL)
-        return (84);
+        return (-1);
     my_strcpy(cpy, src);
     while (cpy[*idx + 1] == '0')
         *idx = *idx + 1;
     *idx = *idx + 1;
     number = my_strtol(cpy + *idx, &cpy);
-    if (number < 0)
-        write(1, "[dev] Invalid precision found.", 30);
     *idx = *idx + (uint_len(number) - 1);
     free(ptr_cpy);
     return (number);

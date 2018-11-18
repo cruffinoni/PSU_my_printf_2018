@@ -17,7 +17,7 @@ static int divide_base(int nb, int base)
     divide_base(nb/base, base);
     if (rest < 10)
         my_putchar('0' + rest);
-    else if(base > 10)
+    else if (base > 10)
         my_putchar('A' + (rest - 10));
     return (0);
 }

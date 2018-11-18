@@ -33,7 +33,6 @@ SRC_TEST = 	./tests/tests_integer.c 		\
 			./tests/tests_char.c 			\
 			./tests/tests_binary.c 			\
 			./tests/tests_string.c 			\
-			./tests/tests_pointer.c 		\
 
 NAME	=	my_printf
 NAME_TEST	=	test_my_printf
@@ -49,6 +48,7 @@ OBJ_MAIN = $(MAIN_FILE:.c=.o)
 OBJ_MAIN_TEST = $(MAIN_TEST_FILE:.c=.o)
 
 $(NAME):
+	rm ./lib/my/my_printf/src/ -rf
 	cp ./src ./lib/my/my_printf/ -rf
 	$(MAKE) -C $(LIB_MAKEFILE_PATH)
 

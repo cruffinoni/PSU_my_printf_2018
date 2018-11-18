@@ -11,10 +11,10 @@
 #include <stdlib.h>
 
 int my_printf(char const *src, ...);
+
 typedef struct s_specifier
 {
     size_t flags;
-    size_t flags_type; // à supprimer
     size_t flags_extra;
     int len_specifier;
     int extra_precision;

@@ -26,9 +26,7 @@ int type_char(va_list args, t_local_spe specifier_infos)
     count += my_putchar(var);
     if ((specifier_infos.flags_extra & EXTRAF_MINUS) == EXTRAF_MINUS)
         if (1 < specifier_infos.precision && specifier_infos.precision >
-            count) {
-            specifier_infos.flags &= ~FLAG_ACC_IS_ZERO;
+            count)
             count += print_char_ite(specifier_infos.precision - count, ' ');
-        }
     return (count);
 }

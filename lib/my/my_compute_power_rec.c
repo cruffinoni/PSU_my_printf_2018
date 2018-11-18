@@ -4,6 +4,7 @@
 ** File description:
 ** Raise nb to power p by recursive method.
 */
+
 int my_compute_power_rec(int nb, int p)
 {
     long result = 1;

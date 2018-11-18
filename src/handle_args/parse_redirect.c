@@ -23,11 +23,10 @@
 #include "../type/signed_int/small_len.h"
 #include "../type/signed_int/big_len.h"
 
-static int (*func_ptr_others[])(va_list, t_local_spe) = {type_pointer,
+static const int (*func_ptr_others[])(va_list, t_local_spe) = {type_pointer,
     type_char, type_string, type_string_escape};
 
-static int (*func_ptr_int[][8])(va_list, t_local_spe) =
-{
+static const int (*func_ptr_int[][8])(va_list, t_local_spe) = {
     {type_int, type_schar, type_short, type_long, type_llong, type_intmax_t,
         type_ssize_t, type_ptrdiff_t},
     {type_unint, type_uschar, type_ushort, type_unlong, type_unllong,
@@ -65,7 +64,7 @@ static int handle_valid_args(char const *src, int *index, t_local_spe specifier,
 
 int handle_args(char const *src, int *index, va_list args, size_t *gflag)
 {
-    t_local_spe specifier = {0, 0, 0, 1, 0, 0, 0, 0};
+    t_local_spe specifier = {0, 0, 0, 1, 0, 0, 0};
 
     parse_extra_flags(src, index, &specifier);
     if (my_isnumber(src[*index + 1])) {

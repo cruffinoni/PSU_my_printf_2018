@@ -72,6 +72,7 @@ all: $(NAME_LIB)
 
 $(NAME_LIB): $(OBJ) my
 	rm ./my_printf/src/main.c -f
+	rm ./my_printf/src/main_test.c -f
 	ar rc $(NAME_LIB) $(OBJ)
 	cp $(NAME_LIB) ../..
 	mv $(NAME_LIB) ../

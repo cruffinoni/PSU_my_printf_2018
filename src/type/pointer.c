@@ -34,9 +34,7 @@ int type_pointer(va_list args, t_local_spe specifier_infos)
     uint_print_nbr((intptr_t) var, &count, 0, 16);
     if ((specifier_infos.flags_extra & EXTRAF_MINUS) == EXTRAF_MINUS)
         if (nb_len < specifier_infos.precision && specifier_infos.precision >
-            count) {
-            specifier_infos.flags &= ~FLAG_ACC_IS_ZERO;
+            count)
             count += print_char_ite(specifier_infos.precision - count, ' ');
-        }
     return (count);
 }
