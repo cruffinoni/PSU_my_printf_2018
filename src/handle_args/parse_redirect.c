@@ -23,16 +23,6 @@
 #include "../type/signed_int/small_len.h"
 #include "../type/signed_int/big_len.h"
 
-static int (*func_ptr_others[])(va_list, t_local_spe) = {type_pointer,
-    type_char, type_string, type_string_escape};
-
-static int (*func_ptr_int[][8])(va_list, t_local_spe) = {
-    {type_int, type_schar, type_short, type_long, type_llong, type_intmax_t,
-        type_ssize_t, type_ptrdiff_t},
-    {type_unint, type_uschar, type_ushort, type_unlong, type_unllong,
-        type_uintmax_t, type_sizet, type_unptrdiff_t}
-};
-
 static int handle_invalid_arg(char const *src, int *index, size_t *gflag)
 {
     if (src[*index + 1] == '\0' && src[*index + 1] != '%') {
@@ -50,6 +40,14 @@ static int handle_invalid_arg(char const *src, int *index, size_t *gflag)
 static int handle_valid_args(char const *src, int *index, t_local_spe specifier,
     va_list args)
 {
+    int (*func_ptr_others[])(va_list, t_local_spe) = {type_pointer,
+        type_char, type_string, type_string_escape};
+    int (*func_ptr_int[][8])(va_list, t_local_spe) = {
+        {type_int, type_schar, type_short, type_long, type_llong, type_intmax_t,
+            type_ssize_t, type_ptrdiff_t},
+        {type_unint, type_uschar, type_ushort, type_unlong, type_unllong,
+            type_uintmax_t, type_sizet, type_unptrdiff_t}
+    };
     int tmp = 0;
 
     specifier.basic_specifier = src[*index + 1];

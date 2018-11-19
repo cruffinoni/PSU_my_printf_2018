@@ -14,7 +14,7 @@
 
 static int print_hash_extraf(char basic_specifier)
 {
-    switch(basic_specifier) {
+    switch (basic_specifier) {
         case 'x': write(1, "0x", 2);
             return (2);
         case 'X': write(1, "0X", 2);
